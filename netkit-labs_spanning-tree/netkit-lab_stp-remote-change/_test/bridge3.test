@@ -1,0 +1,11 @@
+#!/bin/sh
+
+sleep 10
+
+# Force a topology change
+brctl addif br0 eth1
+
+sleep 110
+
+touch /hostlab/bridge3.testdone
+halt

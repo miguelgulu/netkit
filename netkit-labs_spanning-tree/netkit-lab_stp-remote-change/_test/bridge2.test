@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Alive"
+
+sleep 2m
+
+touch /hostlab/bridge2.testdone
+halt

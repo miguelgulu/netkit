@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Wait for the Spanning Tree Protocol to settle
+sleep 1m
+
+brctl showstp br0 | awk '
+   /bridge id/ {print $3}
+   /designated root/ {print $3}
+   /designated bridge/ {print $3}
+   /state/ {print $5}
+   /^eth/ {print}
+'
+
+touch /hostlab/bridge3.testdone
+halt
+
