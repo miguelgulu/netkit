@@ -1,0 +1,29 @@
+ifconfig eth0 77.124.3.1/24 up
+ifconfig eth1 up
+
+vconfig add eth1 10
+vconfig add eth1 20
+vconfig add eth1 30
+
+ifconfig eth1.10 192.168.1.1/24 up
+ifconfig eth1.20 192.168.2.1/24 up
+ifconfig eth1.30 192.168.3.1/24 up
+
+#Crear NAT para que solo la vlan10 y vlan20 conecten con inet
+iptables -t nat -A POSTROUTING -o eth0 -s 192.168.2.0/24 -j MASQUERADE
+
+#Impedir que la vlan20 conecte con la vlan30
+iptables -A FORWARD -i eth1.20 -d 192.168.3.0/24 -j DROP
+
+#Impedir que la vlan30 conecte con la vlan20
+iptables -A FORWARD -i eth1.30 -d 192.168.2.0/24 -j DROP
+
+#Que solamente los primeros pcs de cada vlan puedan hacer ssh a el servidor
+iptables -A FORWARD -s 192.168.2.3 -d 192.168.1.2 -p tcp --dport 22 -j DROP
+iptables -A FORWARD -s 192.168.3.3 -d 192.168.1.2 -p tcp --dport 22 -j DROP
+
+#Permitir que inet haga ssh a pc11
+iptables -t nat -A PREROUTING -p tcp --dport 22 -i eth0 -j DNAT --to 192.168.2.2
+
+
+

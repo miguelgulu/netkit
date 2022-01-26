@@ -1,0 +1,10 @@
+ifconfig eth0 up
+ifconfig eth0 add 2001:db8:dead:1::1/64
+ifconfig eth1 up
+ifconfig eth1 add 2001:bcc:faca:1::1/64
+ifconfig eth2 up
+ifconfig eth2 add 2001:bcc:cafe:1::1/64
+
+route -A inet6 add 2001:bcc:1f0:1::/64 gw 2001:db8:dead:1::2
+
+echo 1 > /proc/sys/net/ipv6/all/conf/forwarding

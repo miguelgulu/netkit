@@ -1,0 +1,11 @@
+ifconfig eth0 up
+vconfig add eth0 10
+vconfig add eth0 20
+
+ifconfig eth0.10 192.168.1.1/24 up
+ifconfig eth0.20 172.16.4.1/24 up
+
+ifconfig eth1 82.1.2.1/16 up
+ifconfig eth2 68.124.2.1/16 up
+
+

@@ -1,0 +1,4 @@
+ip link set eth0 up
+ip -6 addr add 2001:bcc:1f0:1::104/64 dev eth0
+
+ip -6 route add default via 2001:bcc:1f0:1::1
