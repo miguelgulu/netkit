@@ -1,0 +1,17 @@
+ip addr add eth0 dev eth0
+ip link set eth0 up
+
+ip link add eth0.10 type vlan id 10 dev eth0
+ip link add eth0.20 type vlan id 20 dev eth0
+ip link add eth0.30 type vlan id 30 dev eth0
+#vconfig add eth0 10
+#vconfig add eth0 20
+#vconfig add eth0 30
+
+ip addr add 120.1.1.2/24 dev eth0.10
+ip addr add 192.168.1.1/24 dev eth0.20
+ip addr add 192.168.2.1/24 dev eth0.30
+
+ip link set eth0.10 up
+ip link set eth0.20 up
+ip link set eth0.30 up

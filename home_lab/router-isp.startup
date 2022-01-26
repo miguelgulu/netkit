@@ -1,0 +1,5 @@
+ip link set eth0 up
+ip link set eth1 up
+ip address add 82.1.0.1/16 dev eth0 
+
+

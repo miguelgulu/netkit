@@ -1,0 +1,6 @@
+ifconfig eth0 192.168.8.1/24 up
+ifconfig eth1 168.23.7.31/21 up
+
+route add default gw 192.168.8.254
+
+iptables -t nat -A POSTROUTING -o eth1 -d 168.23.7.2 -j MASQUERADE

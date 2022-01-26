@@ -1,0 +1,2 @@
+FROM kathara/quagga
+RUN apt update && apt install vlan

@@ -1,0 +1,14 @@
+ifconfig eth0 192.168.2.254/24 up
+ifconfig eth1 192.168.4.254/24 up
+ifconfig eth2 192.168.9.254/24 up
+
+
+route add default gw 192.168.4.253
+#route add -net 192.168.1.0/24 gw 192.168.4.253
+#route add -net 192.168.3.0/24 gw 192.168.4.253
+#route add -net 192.168.5.0/24 gw 192.168.4.253
+#route add -net 192.168.6.0/24 gw 192.168.4.253
+#route add -net 192.168.7.0/24 gw 192.168.4.253
+#route add -net 192.168.8.0/24 gw 192.168.4.253
+#route add -net 82.31.72.0/24 gw 192.168.4.253
+

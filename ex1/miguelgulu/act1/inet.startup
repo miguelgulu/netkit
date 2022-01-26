@@ -1,0 +1,3 @@
+ifconfig eth0 168.23.7.2/21 up
+
+#route add default gw 168.23.7.31

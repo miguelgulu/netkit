@@ -1,0 +1,5 @@
+ifconfig eth0 192.168.2.254/24 up
+ifconfig eth1 192.168.4.254/24 up
+ifconfig eth3 192.168.9.254/24 up
+
+route add default gw 192.168.4.253
